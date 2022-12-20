@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1045655948358",
+    "project_id": "firern-e7e72",
+    "storage_bucket": "firern-e7e72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045655948358:android:741416adf6bde1ae7cce47",
+        "android_client_info": {
+          "package_name": "com.fire_rn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045655948358-2cdkej4d02gc6dq8pjhk1lsodhnnbo9j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpSWVvvvYQMV6hjUKd1iUMUU_QC53lpO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045655948358-2cdkej4d02gc6dq8pjhk1lsodhnnbo9j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
