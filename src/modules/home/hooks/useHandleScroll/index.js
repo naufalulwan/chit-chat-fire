@@ -9,7 +9,7 @@ const useHandleScroll = () => {
   const handleScroll = useCallback(
     event => {
       const CustomLayoutLinear = {
-        duration: 100,
+        duration: 50,
         create: {
           type: LayoutAnimation.Types.linear,
           property: LayoutAnimation.Properties.opacity,
@@ -25,10 +25,7 @@ const useHandleScroll = () => {
       };
       // Check if the user is scrolling up or down by confronting the new scroll position with your own one
       const currentOffset = event.nativeEvent.contentOffset.y;
-      const direction =
-        currentOffset < 50 || currentOffset < scrollOffset.current
-          ? 'down'
-          : 'up';
+      const direction = currentOffset < 100 ? 'down' : 'up';
       // If the user is scrolling down (and the action-button is still visible) hide it
       const isActionButtonVisible = direction === 'up';
       if (isActionButtonVisible !== showButton) {

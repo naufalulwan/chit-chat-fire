@@ -4,7 +4,7 @@ import React from 'react';
 const CIAuth = ({ text, date }) => {
   return (
     <View
-      style={{ marginBottom: 20, alignItems: 'flex-end', paddingRight: 16 }}>
+      style={{ marginBottom: 14, alignItems: 'flex-end', paddingRight: 16 }}>
       <View
         style={{
           maxWidth: '70%',
@@ -19,7 +19,7 @@ const CIAuth = ({ text, date }) => {
         </Text>
       </View>
 
-      <Text style={{ fontSize: 11, marginTop: 8, textAlign: 'right' }}>
+      <Text style={{ fontSize: 11, marginTop: 4, textAlign: 'right' }}>
         {date}
       </Text>
     </View>

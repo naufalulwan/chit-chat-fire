@@ -8,7 +8,7 @@ const CItem = ({ isAuth, text, date }) => {
   }
   return (
     <View
-      style={{ marginBottom: 20, alignItems: 'flex-start', paddingLeft: 16 }}>
+      style={{ marginBottom: 14, alignItems: 'flex-start', paddingLeft: 16 }}>
       <View
         style={{
           maxWidth: '70%',
@@ -22,7 +22,7 @@ const CItem = ({ isAuth, text, date }) => {
           {text}
         </Text>
       </View>
-      <Text style={{ fontSize: 11, marginTop: 8, textAlign: 'left' }}>
+      <Text style={{ fontSize: 11, marginTop: 4, textAlign: 'left' }}>
         {date}
       </Text>
     </View>

@@ -8,10 +8,13 @@ const DialogAlert = ({ title, subTitle, visible, setVisible, callback }) => {
   return (
     <View>
       <Portal>
-        <Dialog visible={visible} onDismiss={hideDialog}>
+        <Dialog
+          style={{ backgroundColor: 'white' }}
+          visible={visible}
+          onDismiss={hideDialog}>
           <Dialog.Title>{title}</Dialog.Title>
           <Dialog.Content>
-            <Paragraph>{subTitle}</Paragraph>
+            <Paragraph style={{ fontSize: 16 }}>{subTitle}</Paragraph>
           </Dialog.Content>
           <Dialog.Actions>
             <Button onPress={hideDialog}>Cancel</Button>

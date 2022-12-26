@@ -17,6 +17,7 @@ const AppBar = ({ title, color, textColor, backButton, onPress }) => {
             color={textColor ?? theme.colors.surface}
           />
         ) : null}
+
         <Appbar.Content
           title={title}
           titleStyle={{

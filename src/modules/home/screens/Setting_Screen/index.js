@@ -5,23 +5,16 @@ import { Button, Text } from 'react-native-paper';
 import auth from '@react-native-firebase/auth';
 import { AppBar, Gap } from '../../../../components';
 import { DialogAlert } from '../../components';
-import { StackActions, useNavigation } from '@react-navigation/native';
-import database from '@react-native-firebase/database';
+import {
+  StackActions,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 
 const SettingScreen = () => {
   const navigation = useNavigation();
+  const params = useRoute().params;
   const [visible, setVisible] = useState(false);
-  const [name, setName] = useState('');
-
-  useEffect(() => {
-    database()
-      .ref('users')
-      .child(auth().currentUser.uid)
-      .child('name')
-      .on('value', snapshot => {
-        setName(snapshot.val());
-      });
-  }, []);
 
   const handleLogout = () => {
     setVisible(false);
@@ -38,12 +31,12 @@ const SettingScreen = () => {
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View
           style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={{ fontSize: 16, fontWeight: '800' }}>{name}</Text>
+          <Text style={{ fontSize: 20, fontWeight: '800' }}>{params.name}</Text>
           <Gap height={8} />
-          <Text style={{ fontSize: 14, fontWeight: '600' }}>
+          <Text style={{ fontSize: 16, fontWeight: '600' }}>
             {auth().currentUser.email}
           </Text>
-          <Gap height={20} />
+          <Gap height={28} />
           <Button
             mode="outlined"
             onPress={() => {

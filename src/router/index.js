@@ -11,16 +11,35 @@ import {
 
 import { BottomNavigator } from '../components';
 
+import database from '@react-native-firebase/database';
+import auth from '@react-native-firebase/auth';
+
 const { Navigator, Screen } = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const Home = () => {
+  const [name, setName] = useState('');
+
+  useEffect(() => {
+    database()
+      .ref('users')
+      .child(auth().currentUser.uid)
+      .child('name')
+      .once('value', snapshot => {
+        setName(snapshot.val());
+      });
+  }, []);
+
   return (
     <Tab.Navigator
       tabBar={props => <BottomNavigator {...props} />}
       screenOptions={{ headerShown: false }}>
       <Tab.Screen name="Landing" component={LandingScreen} />
-      <Tab.Screen name="Setting" component={SettingScreen} />
+      <Tab.Screen
+        name="Setting"
+        component={SettingScreen}
+        initialParams={{ name: name }}
+      />
     </Tab.Navigator>
   );
 };

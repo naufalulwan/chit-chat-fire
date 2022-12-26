@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { IconButton, TextInput } from 'react-native-paper';
 
 const IChat = ({ placeholder, value, changeText, onPress }) => {
-  const [height, setHeight] = useState(0);
   return (
     <View
       style={{
@@ -15,22 +14,18 @@ const IChat = ({ placeholder, value, changeText, onPress }) => {
       <TextInput
         style={{
           flex: 1,
-          style: { height: Math.max(35, height) },
-          paddingBottom: 0,
-          paddingTop: 0,
+          maxHeight: 120,
         }}
         value={value}
         onChangeText={changeText}
         mode="outlined"
         placeholder={placeholder}
-        onContentSizeChange={e => {
-          setHeight(e.nativeEvent.contentSize.height);
-        }}
         multiline
       />
       <IconButton
         mode="contained"
         icon="send"
+        disabled={value === ''}
         style={{
           height: 50,
           marginLeft: 14,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StackActions, useNavigation } from '@react-navigation/native';
-import { View, TouchableHighlight, Keyboard } from 'react-native';
+import { View, TouchableHighlight, Keyboard, StatusBar } from 'react-native';
 import { Text } from 'react-native-paper';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { AForm, AButton } from '../../components';
@@ -61,53 +61,59 @@ const LoginScreen = () => {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: 'white' }}>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          marginHorizontal: 20,
-        }}>
-        <View style={{ alignItems: 'center', marginBottom: 28 }}>
-          <Text style={{ fontSize: 28, fontWeight: '700' }}>
-            Welcome to Paradise
-          </Text>
-        </View>
-        <AForm
-          name="email"
-          returnKeyType="next"
-          control={control}
-          focus={() => {
-            setFocus('password');
-          }}
-        />
-        <AForm name="password" returnKeyType="done" control={control} />
-
-        <AButton
-          label={loading ? 'Redirecting' : 'Masuk'}
-          onPress={handleSubmit(handleLogin)}
-          disabled={loading}
-        />
+    <>
+      <StatusBar backgroundColor="white" barStyle="dark-content" />
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View
           style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginTop: 20,
+            flex: 1,
+            justifyContent: 'center',
+            marginHorizontal: 20,
           }}>
-          <Text style={{ fontSize: 15, fontWeight: '500' }}>
-            Belum punya akun?
-          </Text>
-          <TouchableHighlight
-            activeOpacity={0.5}
-            underlayColor="transparent"
-            onPress={() => navigation.navigate('Register')}>
-            <Text style={{ color: 'blue', fontSize: 15, fontWeight: '700' }}>
-              Daftar Sekarang
+          <View style={{ alignItems: 'center', marginBottom: 36 }}>
+            <Text style={{ fontSize: 28, fontWeight: '700' }}>
+              Welcome to Paradise
             </Text>
-          </TouchableHighlight>
+            <Text style={{ fontSize: 18, fontWeight: '500' }}>
+              Silahkan login terlebih dahulu
+            </Text>
+          </View>
+          <AForm
+            name="email"
+            returnKeyType="next"
+            control={control}
+            focus={() => {
+              setFocus('password');
+            }}
+          />
+          <AForm name="password" returnKeyType="done" control={control} />
+
+          <AButton
+            label={loading ? 'Redirecting' : 'Masuk'}
+            onPress={handleSubmit(handleLogin)}
+            disabled={loading}
+          />
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginTop: 20,
+            }}>
+            <Text style={{ fontSize: 15, fontWeight: '500' }}>
+              Belum punya akun?
+            </Text>
+            <TouchableHighlight
+              activeOpacity={0.5}
+              underlayColor="transparent"
+              onPress={() => navigation.navigate('Register')}>
+              <Text style={{ color: 'blue', fontSize: 15, fontWeight: '700' }}>
+                Daftar Sekarang
+              </Text>
+            </TouchableHighlight>
+          </View>
         </View>
       </View>
-    </View>
+    </>
   );
 };
 

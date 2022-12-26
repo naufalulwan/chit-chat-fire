@@ -6,9 +6,9 @@ const BottomNavigator = ({ state, navigation }) => {
   const [routes] = useState([
     {
       key: state.routeNames[0],
-      title: 'Home',
-      focusedIcon: 'home',
-      unfocusedIcon: 'home-outline',
+      title: 'Chat',
+      focusedIcon: 'chat',
+      unfocusedIcon: 'chat-outline',
     },
     {
       key: state.routeNames[1],
